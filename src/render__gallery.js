@@ -30,5 +30,5 @@ export function renderGallery(arr) {
 </a></div>`
     )
     .join('');
-  box__gallery.innerHTML = markup;
+  box__gallery.insertAdjacentHTML('beforeend', markup);
 }
