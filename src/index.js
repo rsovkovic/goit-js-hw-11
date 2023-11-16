@@ -48,16 +48,14 @@ function onSearchForm(evt) {
 
 function onClick(evt) {
   page += 1;
-  // lightbox.destroy();
   fetchImages(query, page, perPages)
     .then(data => {
       const totalPages = Math.ceil(data.totalHits / perPages);
-      if (page > totalPages) {
+      if (page >= totalPages) {
         window.scrollTo({
           top: 0,
           behavior: 'smooth',
         });
-        box__gallery.classList.add('hidden-element');
         loadMore.classList.add('hidden');
         Notify.failure(
           "We're sorry, but you've reached the end of search results."
